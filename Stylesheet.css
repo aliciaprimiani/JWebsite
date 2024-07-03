@@ -89,6 +89,8 @@ nav ul li a:hover {
     align-items: flex-start;
     padding: 50px 20px;
     background-color: white;
+    flex-wrap: wrap;
+
 }
 
 .experience-text {
@@ -124,6 +126,7 @@ nav ul li a:hover {
 
 .blue-components {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
     margin-top: 20px;
@@ -182,6 +185,7 @@ nav ul li a:hover {
 
 .service-list {
     display: flex;
+    flex-wrap: wrap;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
@@ -284,6 +288,7 @@ nav ul li a:hover {
 .contact-info {
     width: 30%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -299,4 +304,53 @@ footer {
     padding: 10px;
     bottom: 0;
     width: 100%;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .experience {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .experience-text, .experience-image {
+        padding: 20px;
+    }
+
+    .blue-component {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+
+    .service-item {
+        width: calc(100% - 40px);
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-form, .contact-info {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5em;
+    }
+
+    .blue-component h2 {
+        font-size: 1.5em;
+    }
+
+    .service-item h3 {
+        font-size: 1.2em;
+    }
+
+    .contact-form label, .contact-form button {
+        font-size: 1em;
+    }
 }
