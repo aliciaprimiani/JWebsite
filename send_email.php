@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST['message'];
 
     // Set email details
-    $to = "alicia.primiani1@gmail.com; // Replace with your email address
+    $to = "alicia.primiani1@gmail.com"; // Replace with your email address
     $subject = "New Contact Form Submission from " . $name;
     $headers = "From: " . $email . "\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Compose email body
     $body = "<h2>Contact Form Submission</h2>";
-    $body .= "<p><strong>Name:</strong> " . $name . "</p>";
-    $body .= "<p><strong>Email:</strong> " . $email . "</p>";
-    $body .= "<p><strong>Phone:</strong> " . $phone . "</p>";
-    $body .= "<p><strong>Message:</strong><br>" . nl2br($message) . "</p>";
+    $body .= "<p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>";
+    $body .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
+    $body .= "<p><strong>Phone:</strong> " . htmlspecialchars($phone) . "</p>";
+    $body .= "<p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>";
 
     // Send email
     if (mail($to, $subject, $body, $headers)) {
